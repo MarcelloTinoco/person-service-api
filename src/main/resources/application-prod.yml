@@ -1,0 +1,9 @@
+app:
+  environment: Production
+  
+spring:
+  h2:
+    console:
+      enabled: true
+
+
