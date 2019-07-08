@@ -39,7 +39,7 @@ public class Person implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String id;
+	private Long id;
 	
 	@Column(name="cpf", nullable=false)
 	private String cpf;
@@ -57,7 +57,7 @@ public class Person implements Serializable{
 	private int age;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="genre")
+	@Column(name="genre",nullable = false)
 	private GenreType genre;
 	
 	@Temporal(TemporalType.TIMESTAMP)
