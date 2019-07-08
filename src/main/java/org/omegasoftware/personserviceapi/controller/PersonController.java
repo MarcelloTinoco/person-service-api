@@ -30,7 +30,9 @@ public class PersonController {
             @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")})
-	@GetMapping(value = "/{id}", headers = "X-API-Version=v1")
+	@GetMapping(value = "/{id}", headers = "X-API-Version=v1", 
+	            consumes =  MediaType.APPLICATION_JSON_UTF8_VALUE, 
+		        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Response<PersonDTO>> getById(@PathVariable("id") long id) {
 		
 		Response<PersonDTO> response = new Response<PersonDTO>();
