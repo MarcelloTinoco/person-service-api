@@ -24,13 +24,13 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/person")
 public class PersonController {
 
-	@ApiOperation(value = "Get a Person By Id", response = Iterable.class)
+	@ApiOperation(value = "Get a Person By Id. This API is versioning, so pass X-API-Version=v1 in header in order to call resource", response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved Person"),
             @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")})
-	@GetMapping("/{id}")
+	@GetMapping(value = "/{id}", headers = "X-API-Version=v1")
 	public ResponseEntity<Response<PersonDTO>> getById(@PathVariable("id") long id) {
 		
 		Response<PersonDTO> response = new Response<PersonDTO>();
@@ -54,7 +54,9 @@ public class PersonController {
 	 * @param personDTO
 	 * @return
 	 */
-	@PostMapping(consumes =  MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(consumes =  MediaType.APPLICATION_JSON_UTF8_VALUE, 
+			     produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+			     headers = "X-API-Version=v1")
 	public ResponseEntity<Response<PersonDTO>> save(@Valid @RequestBody PersonDTO personDTO, BindingResult result) {
 		
 		Response<PersonDTO> response = new Response<PersonDTO>();
