@@ -15,8 +15,11 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.UniqueElements;
 import org.omegasoftware.personserviceapi.model.enums.GenreType;
+import org.springframework.context.annotation.Primary;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,7 +35,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="person")
+@Table(name="person",
+       uniqueConstraints={@UniqueConstraint(columnNames={"cpf"}, name = "idx_unique_person")
+       					  
+                          }
+)
 public class Person implements Serializable{
 
 	private static final long serialVersionUID = 653353114401752787L;

@@ -46,6 +46,8 @@ public class PersonController {
 		personDTO.setAge(65);
 		
 		response.setData(personDTO);
+		response.setNumberOfRegister(1);
+		response.setTotalOfRegisters(1);
 		
 		return ResponseEntity.ok(response);
 	}

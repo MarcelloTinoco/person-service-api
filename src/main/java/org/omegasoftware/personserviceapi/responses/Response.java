@@ -3,10 +3,32 @@ package org.omegasoftware.personserviceapi.responses;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that represents a caller response
+ * 
+ * @author Marcello Tinoco
+ *
+ * @param <T>
+ */
 public class Response<T> {
 
+	/**
+	 * Data retrieved
+	 */
 	private T data;
+	/**
+	 * A list of errors
+	 */
 	private List<String> errors;
+	/**
+	 * The number of register returned
+	 */
+	private int numberOfRegister;
+	
+	/**
+	 * The total of register
+	 */
+	private int totalOfRegisters;
 	
 	public Response() {
 		
@@ -30,6 +52,24 @@ public class Response<T> {
 	public void setErrors(List<String> errors) {
 		this.errors = errors;
 	}
+
+	public int getNumberOfRegister() {
+		return numberOfRegister;
+	}
+
+	public void setNumberOfRegister(int numberOfRegister) {
+		this.numberOfRegister = numberOfRegister;
+	}
+
+	public int getTotalOfRegisters() {
+		return totalOfRegisters;
+	}
+
+	public void setTotalOfRegisters(int totalOfRegisters) {
+		this.totalOfRegisters = totalOfRegisters;
+	}
+
+	
 	
 	
 }
