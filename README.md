@@ -4,6 +4,9 @@ A Person Service API
 # Run with profiling
 java -jar -Dspring.profiles.active=homolog target/person-service-api-1.0.jar
 
+#Swagger
+http://localhost:9090/swagger-ui.html
+
 #Git Repository
 https://github.com/MarcelloTinoco/person-service-api
 
