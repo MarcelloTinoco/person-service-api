@@ -59,7 +59,6 @@ public class PersonCustomRepositoryImpl implements PersonCustomRepository{
 		}
 		return (List<Person>)q.getResultList();
 	}
-
 	
 
 }

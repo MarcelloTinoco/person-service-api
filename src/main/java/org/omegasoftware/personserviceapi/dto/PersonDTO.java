@@ -10,7 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
+import org.omegasoftware.personserviceapi.model.Person;
 import org.omegasoftware.personserviceapi.model.enums.GenreType;
+import org.springframework.beans.BeanUtils;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,4 +55,18 @@ public class PersonDTO implements Serializable{
 	
 	@NotNull(message = "Genre should not be empty.")
 	private GenreType genre;
+	
+	
+	public void setEntity(Person p) {
+		if(p!=null) {
+			BeanUtils.copyProperties(p, this);
+		}
+	}
+	
+	@JsonIgnore
+	public Person getEntity() {
+		Person p = new Person();
+		BeanUtils.copyProperties(this, p);
+		return p;
+	}
 }

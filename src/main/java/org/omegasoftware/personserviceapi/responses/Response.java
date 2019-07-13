@@ -3,6 +3,8 @@ package org.omegasoftware.personserviceapi.responses;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.hateoas.ResourceSupport;
+
 /**
  * Class that represents a caller response
  * 
@@ -10,7 +12,7 @@ import java.util.List;
  *
  * @param <T>
  */
-public class Response<T> {
+public class Response<T> extends ResourceSupport {
 
 	/**
 	 * Data retrieved
@@ -40,6 +42,7 @@ public class Response<T> {
 
 	public void setData(T data) {
 		this.data = data;
+		
 	}
 
 	public List<String> getErrors() {
