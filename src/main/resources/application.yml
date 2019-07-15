@@ -3,6 +3,7 @@ server:
  
 app:
   environment: Localhost
+  max-results-per-page: 100
   
 spring:
   datasource:

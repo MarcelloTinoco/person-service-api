@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.omegasoftware.personserviceapi.model.Person;
 import org.omegasoftware.personserviceapi.model.enums.GenreType;
 import org.springframework.beans.BeanUtils;
+import org.springframework.hateoas.ResourceSupport;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,10 +26,9 @@ import lombok.NoArgsConstructor;
  * @author Marcello Tinoco
  *
  */
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonDTO implements Serializable{
+public class PersonDTO  extends ResourceSupport implements Serializable{
 
 	private static final long serialVersionUID = 7924537803853230576L;
 	
@@ -68,5 +68,61 @@ public class PersonDTO implements Serializable{
 		Person p = new Person();
 		BeanUtils.copyProperties(this, p);
 		return p;
+	}
+
+	public Long getPersonId() {
+		return id;
+	}
+
+	public void setPersonId(Long id) {
+		this.id = id;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public GenreType getGenre() {
+		return genre;
+	}
+
+	public void setGenre(GenreType genre) {
+		this.genre = genre;
 	}
 }

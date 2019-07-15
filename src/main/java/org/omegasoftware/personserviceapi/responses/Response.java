@@ -12,7 +12,7 @@ import org.springframework.hateoas.ResourceSupport;
  *
  * @param <T>
  */
-public class Response<T> extends ResourceSupport {
+public class Response<T> {
 
 	/**
 	 * Data retrieved

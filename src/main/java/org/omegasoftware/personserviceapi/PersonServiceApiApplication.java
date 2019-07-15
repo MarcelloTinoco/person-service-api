@@ -1,29 +1,24 @@
 package org.omegasoftware.personserviceapi;
 
-import java.util.List;
-
-import org.omegasoftware.personserviceapi.dto.PersonFilterDTO;
-import org.omegasoftware.personserviceapi.model.Person;
-import org.omegasoftware.personserviceapi.model.enums.GenreType;
-import org.omegasoftware.personserviceapi.repository.PersonRepository;
+import org.omegasoftware.personserviceapi.configuration.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 @SpringBootApplication
 public class PersonServiceApiApplication {
 
-	@Autowired
-	private PersonRepository personRepository;
+	/*
+	 * @Autowired private PersonRepository personRepository;
+	 */
+	/*
+	 * @Value("${app.environment}") private String environment;
+	 */
 	
-	@Value("${app.environment}")
-	private String environment;
+	@Autowired
+	private Configuration config;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PersonServiceApiApplication.class, args);
@@ -34,7 +29,7 @@ public class PersonServiceApiApplication {
 		return args -> {
 			
 			System.out.println("################################################################"); 
-			System.out.println("Person Service API Running On Environment - " + this.environment); 
+			System.out.println("Person Service API Running On Environment - " + config.getEnvironment()); 
 			System.out.println("################################################################"); 
 			
 			
