@@ -4,7 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Value;
+import org.omegasoftware.personserviceapi.configuration.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -12,8 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class PersonServiceApiApplicationTests {
 
-	@Value("${app.environment}")
-	private String environment;
+	@Autowired
+	private Configuration config;
 	
 	@Test
 	public void contextLoads() {
@@ -22,7 +23,7 @@ public class PersonServiceApiApplicationTests {
 
 	@Test
 	public void testConfigurationEnvironment() {
-		assertEquals("Test", environment);
+		assertEquals("Test", config.getEnvironment());
 	}
 	
 }

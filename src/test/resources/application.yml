@@ -1,5 +1,6 @@
 app:
   environment: Test
+  max-results-per-page: 100
   
 spring:
   h2:
